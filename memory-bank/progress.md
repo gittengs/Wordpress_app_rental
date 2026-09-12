@@ -17,6 +17,9 @@ place. Feature logic is stubbed out and ready to be built upon.
 - [x] `readme.txt` (WordPress.org format), `CHANGELOG.md`, `languages/` placeholder.
 - [x] `README.md` + `DEVELOPMENT.md` with setup, lint, test, and release steps.
 - [x] JS syntax validated with `node --check`.
+- [x] Front-end stylesheet re-skinned to the happybike.no design language
+      (brand tokens, pill CTAs, uppercase headings); CSS parsed cleanly with the
+      Node `css` package (`32 rules, 115 declarations`, no structural problems).
 
 ## What's left to build
 

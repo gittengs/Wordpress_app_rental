@@ -1,7 +1,29 @@
 /**
  * Bike Rental — front-end styles.
- * Intentionally minimal so it inherits the active theme.
+ *
+ * Re-skinned to match the Happy Bike (happybike.no) design language:
+ * deep green-charcoal, crimson accent, warm peach/cream neutrals,
+ * tight tracking, 4/8px radii and pill-shaped buttons.
+ *
+ * Kept theme-agnostic: base typography inherits from the active theme;
+ * only the rental-specific components are themed here. Tokens live on
+ * :root so standalone notices / empty states resolve them too.
  */
+
+:root {
+	/* Brand tokens — mirrors happybike.no's Bricks color variables. */
+	--bike-rental-dark: #23332d;
+	--bike-rental-dark-deep: #0e1513;
+	--bike-rental-accent: #cf0050;
+	--bike-rental-accent-deep: #a7144c;
+	--bike-rental-peach: #ffe4d9;
+	--bike-rental-cream: #fff6f2;
+	--bike-rental-white: #ffffff;
+	--bike-rental-text: #0e1513;
+	--bike-rental-muted: #444444;
+	--bike-rental-quiet: #bfbfbf;
+	--bike-rental-amber: #ffa011;
+}
 
 .bike-rental-grid {
 	display: grid;
@@ -23,68 +45,122 @@
 }
 
 .bike-rental-card {
-	border: 1px solid rgba(0, 0, 0, 0.1);
+	border: 1px solid var(--bike-rental-peach);
 	border-radius: 8px;
 	padding: 1rem;
-	background: #fff;
+	background: var(--bike-rental-white);
+	color: var(--bike-rental-text);
 	display: flex;
 	flex-direction: column;
+	overflow: hidden;
+}
+
+.bike-rental-card__image {
+	display: block;
+	margin: -1rem -1rem 0;
 }
 
 .bike-rental-card__image img {
 	width: 100%;
 	height: auto;
-	border-radius: 6px;
+	border-radius: 0;
 	display: block;
 }
 
 .bike-rental-card__title {
 	margin: 0.75rem 0 0.25rem;
-	font-size: 1.1rem;
+	font-size: 1.15rem;
+	font-weight: 800;
+	letter-spacing: -0.25px;
+	color: var(--bike-rental-dark);
+}
+
+.bike-rental-card__title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.bike-rental-card__title a:hover,
+.bike-rental-card__title a:focus {
+	color: var(--bike-rental-accent);
+}
+
+.bike-rental-card__excerpt {
+	color: var(--bike-rental-muted);
+	font-size: 0.9rem;
 }
 
 .bike-rental-card__meta {
 	display: flex;
 	justify-content: space-between;
+	align-items: baseline;
 	gap: 0.5rem;
 	font-size: 0.9rem;
 	margin: 0.5rem 0;
 }
 
 .bike-rental-card__price {
-	font-weight: 600;
+	font-weight: 800;
+	letter-spacing: -0.25px;
+	color: var(--bike-rental-accent);
 }
 
 .bike-rental-card__status {
-	text-transform: capitalize;
-	opacity: 0.8;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	font-size: 0.75rem;
+	font-weight: 500;
+	color: var(--bike-rental-muted);
+	opacity: 0.85;
 }
 
 .bike-rental-card__actions {
 	margin-top: auto;
 }
 
+/* Retire the "Book this bike" CTA when the bike is not available. */
+.bike-rental-status-maintenance .bike-rental-card__actions {
+	display: none;
+}
+
 .bike-rental-button {
 	display: inline-block;
-	padding: 0.5rem 1rem;
-	border-radius: 6px;
-	background: #1f6feb;
-	color: #fff;
+	padding: 0.65rem 1.5rem;
+	border-radius: 9999px;
+	background: var(--bike-rental-accent);
+	color: var(--bike-rental-white);
 	text-decoration: none;
 	border: 0;
 	cursor: pointer;
 	font: inherit;
+	font-weight: 800;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	line-height: 1.2;
+	transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .bike-rental-button:hover,
 .bike-rental-button:focus {
-	background: #1558c0;
-	color: #fff;
+	background: var(--bike-rental-dark);
+	color: var(--bike-rental-white);
+}
+
+.bike-rental-button:focus-visible {
+	outline: 2px solid var(--bike-rental-accent);
+	outline-offset: 2px;
 }
 
 .bike-rental-form {
 	max-width: 520px;
 	margin: 1.5rem 0;
+}
+
+.bike-rental-form__title {
+	margin: 0 0 1rem;
+	font-weight: 800;
+	letter-spacing: -0.25px;
+	color: var(--bike-rental-dark);
 }
 
 .bike-rental-field {
@@ -95,31 +171,53 @@
 }
 
 .bike-rental-field label {
-	font-weight: 600;
+	font-weight: 800;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	font-size: 0.8rem;
+	color: var(--bike-rental-dark);
 }
 
 .bike-rental-field input,
 .bike-rental-field textarea {
-	padding: 0.5rem;
-	border: 1px solid rgba(0, 0, 0, 0.2);
+	padding: 0.6rem 0.75rem;
+	border: 1px solid var(--bike-rental-quiet);
 	border-radius: 4px;
 	font: inherit;
 	width: 100%;
+	background: var(--bike-rental-white);
+	color: var(--bike-rental-text);
+}
+
+.bike-rental-field input:focus,
+.bike-rental-field textarea:focus {
+	border-color: var(--bike-rental-accent);
+	outline: 2px solid var(--bike-rental-peach);
+	outline-offset: 0;
 }
 
 .bike-rental-success,
 .bike-rental-error {
 	padding: 0.75rem 1rem;
-	border-radius: 6px;
+	border-radius: 4px;
 	border-left: 4px solid;
 }
 
 .bike-rental-success {
 	background: #e6f4ea;
-	border-color: #1e7e34;
+	border-color: var(--bike-rental-dark);
 }
 
 .bike-rental-error {
 	background: #fdecea;
-	border-color: #c62828;
+	border-color: var(--bike-rental-accent);
+}
+
+/* Empty-state message shown when no bikes are published. */
+.bike-rental-empty {
+	padding: 1rem;
+	border-radius: 8px;
+	background: var(--bike-rental-cream);
+	color: var(--bike-rental-muted);
+	margin: 1.5rem 0;
 }

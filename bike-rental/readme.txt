@@ -4,7 +4,7 @@ Tags: rental, booking, bikes, bicycles, reservation
 Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 0.1.0
+Stable tag: 0.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,6 +44,9 @@ is planned for a future release.
 Yes. Overlapping requests for the same bike are automatically rejected.
 
 == Changelog ==
+
+= 0.1.1 =
+* Re-skinned the front-end stylesheet to match the happybike.no design language (brand colors, pill-shaped CTAs, uppercase headings).
 
 = 0.1.0 =
 * Initial release: bikes, bike types, bookings, availability, shortcodes, settings.

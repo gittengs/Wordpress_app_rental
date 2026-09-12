@@ -17,4 +17,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Front-end stylesheet and booking-form JavaScript.
 - Cline `.clinerules` and `memory-bank/` project scaffolding.
 
+### Changed
+- Re-skinned the front-end stylesheet to match the Happy Bike (happybike.no)
+  design language: deep green-charcoal (`#23332d`), crimson accent (`#cf0050`),
+  warm peach/cream neutrals, uppercase tight-tracked headings and pill-shaped
+  CTAs. Brand values are exposed as `--bike-rental-*` CSS custom properties on
+  `:root`.
+
 [Unreleased]: https://example.com/bike-rental
