@@ -1,0 +1,125 @@
+/**
+ * Bike Rental — front-end styles.
+ * Intentionally minimal so it inherits the active theme.
+ */
+
+.bike-rental-grid {
+	display: grid;
+	gap: 1.5rem;
+	margin: 1.5rem 0;
+}
+
+.bike-rental-columns-1 { grid-template-columns: repeat(1, 1fr); }
+.bike-rental-columns-2 { grid-template-columns: repeat(2, 1fr); }
+.bike-rental-columns-3 { grid-template-columns: repeat(3, 1fr); }
+.bike-rental-columns-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 782px) {
+	.bike-rental-columns-2,
+	.bike-rental-columns-3,
+	.bike-rental-columns-4 {
+		grid-template-columns: 1fr;
+	}
+}
+
+.bike-rental-card {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+	padding: 1rem;
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+}
+
+.bike-rental-card__image img {
+	width: 100%;
+	height: auto;
+	border-radius: 6px;
+	display: block;
+}
+
+.bike-rental-card__title {
+	margin: 0.75rem 0 0.25rem;
+	font-size: 1.1rem;
+}
+
+.bike-rental-card__meta {
+	display: flex;
+	justify-content: space-between;
+	gap: 0.5rem;
+	font-size: 0.9rem;
+	margin: 0.5rem 0;
+}
+
+.bike-rental-card__price {
+	font-weight: 600;
+}
+
+.bike-rental-card__status {
+	text-transform: capitalize;
+	opacity: 0.8;
+}
+
+.bike-rental-card__actions {
+	margin-top: auto;
+}
+
+.bike-rental-button {
+	display: inline-block;
+	padding: 0.5rem 1rem;
+	border-radius: 6px;
+	background: #1f6feb;
+	color: #fff;
+	text-decoration: none;
+	border: 0;
+	cursor: pointer;
+	font: inherit;
+}
+
+.bike-rental-button:hover,
+.bike-rental-button:focus {
+	background: #1558c0;
+	color: #fff;
+}
+
+.bike-rental-form {
+	max-width: 520px;
+	margin: 1.5rem 0;
+}
+
+.bike-rental-field {
+	margin-bottom: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.bike-rental-field label {
+	font-weight: 600;
+}
+
+.bike-rental-field input,
+.bike-rental-field textarea {
+	padding: 0.5rem;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	font: inherit;
+	width: 100%;
+}
+
+.bike-rental-success,
+.bike-rental-error {
+	padding: 0.75rem 1rem;
+	border-radius: 6px;
+	border-left: 4px solid;
+}
+
+.bike-rental-success {
+	background: #e6f4ea;
+	border-color: #1e7e34;
+}
+
+.bike-rental-error {
+	background: #fdecea;
+	border-color: #c62828;
+}

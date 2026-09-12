@@ -1,0 +1,20 @@
+# Changes to Bike Rental
+
+All notable changes to this project are documented here. The format is based on
+[Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this project adheres
+to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+### Added
+- Initial plugin scaffold: `Plugin`, `Post_Types`, `Meta`, `Bookings`, `Shortcodes`,
+  `Settings`, and `Assets` classes.
+- `bike` and `booking` custom post types, plus the `bike_type` taxonomy.
+- Bike meta box (fleet code, frame size, hourly/daily rate, status).
+- Availability checks with double-booking protection.
+- `[bike_listing]` and `[bike_booking_form]` shortcodes.
+- Admin settings page (currency, business name, booking page, terms).
+- Front-end stylesheet and booking-form JavaScript.
+- Cline `.clinerules` and `memory-bank/` project scaffolding.
+
+[Unreleased]: https://example.com/bike-rental
