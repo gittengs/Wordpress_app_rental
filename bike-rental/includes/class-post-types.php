@@ -64,28 +64,28 @@ class Post_Types {
 	 */
 	private function register_bike() {
 		$labels = array(
-			'name'                  => _x( 'Bikes', 'Post type general name', 'bike-rental' ),
-			'singular_name'         => _x( 'Bike', 'Post type singular name', 'bike-rental' ),
-			'menu_name'             => _x( 'Bikes', 'Admin menu text', 'bike-rental' ),
-			'name_admin_bar'        => _x( 'Bike', 'Add new on toolbar', 'bike-rental' ),
-			'add_new'               => __( 'Add New', 'bike-rental' ),
-			'add_new_item'          => __( 'Add New Bike', 'bike-rental' ),
-			'new_item'              => __( 'New Bike', 'bike-rental' ),
-			'edit_item'             => __( 'Edit Bike', 'bike-rental' ),
-			'view_item'             => __( 'View Bike', 'bike-rental' ),
-			'all_items'             => __( 'All Bikes', 'bike-rental' ),
-			'search_items'          => __( 'Search Bikes', 'bike-rental' ),
-			'not_found'             => __( 'No bikes found.', 'bike-rental' ),
-			'not_found_in_trash'    => __( 'No bikes found in Trash.', 'bike-rental' ),
-			'featured_image'        => __( 'Bike Photo', 'bike-rental' ),
-			'set_featured_image'    => __( 'Set bike photo', 'bike-rental' ),
-			'remove_featured_image' => __( 'Remove bike photo', 'bike-rental' ),
-			'archives'              => __( 'Bike Archives', 'bike-rental' ),
+			'name'                  => _x( 'Sykler', 'Post type general name', 'bike-rental' ),
+			'singular_name'         => _x( 'Sykkel', 'Post type singular name', 'bike-rental' ),
+			'menu_name'             => _x( 'Sykler', 'Admin menu text', 'bike-rental' ),
+			'name_admin_bar'        => _x( 'Sykkel', 'Add new on toolbar', 'bike-rental' ),
+			'add_new'               => __( 'Legg til ny', 'bike-rental' ),
+			'add_new_item'          => __( 'Legg til ny sykkel', 'bike-rental' ),
+			'new_item'              => __( 'Ny sykkel', 'bike-rental' ),
+			'edit_item'             => __( 'Rediger sykkel', 'bike-rental' ),
+			'view_item'             => __( 'Vis sykkel', 'bike-rental' ),
+			'all_items'             => __( 'Alle sykler', 'bike-rental' ),
+			'search_items'          => __( 'Søk i sykler', 'bike-rental' ),
+			'not_found'             => __( 'Ingen sykler funnet.', 'bike-rental' ),
+			'not_found_in_trash'    => __( 'Ingen sykler funnet i papirkurven.', 'bike-rental' ),
+			'featured_image'        => __( 'Sykkelbilde', 'bike-rental' ),
+			'set_featured_image'    => __( 'Velg sykkelbilde', 'bike-rental' ),
+			'remove_featured_image' => __( 'Fjern sykkelbilde', 'bike-rental' ),
+			'archives'              => __( 'Sykkelarkiv', 'bike-rental' ),
 		);
 
 		$args = array(
 			'labels'             => $labels,
-			'description'        => __( 'Bicycles available for rent.', 'bike-rental' ),
+			'description'        => __( 'Sykler tilgjengelig for utleie.', 'bike-rental' ),
 			'public'             => true,
 			'publicly_queryable' => true,
 			'show_ui'            => true,
@@ -120,23 +120,23 @@ class Post_Types {
 	 */
 	private function register_booking() {
 		$labels = array(
-			'name'               => _x( 'Bookings', 'Post type general name', 'bike-rental' ),
+			'name'               => _x( 'Bookinger', 'Post type general name', 'bike-rental' ),
 			'singular_name'      => _x( 'Booking', 'Post type singular name', 'bike-rental' ),
-			'menu_name'          => _x( 'Bookings', 'Admin menu text', 'bike-rental' ),
-			'add_new'            => __( 'Add New', 'bike-rental' ),
-			'add_new_item'       => __( 'Add New Booking', 'bike-rental' ),
-			'new_item'           => __( 'New Booking', 'bike-rental' ),
-			'edit_item'          => __( 'Edit Booking', 'bike-rental' ),
-			'view_item'          => __( 'View Booking', 'bike-rental' ),
-			'all_items'          => __( 'All Bookings', 'bike-rental' ),
-			'search_items'       => __( 'Search Bookings', 'bike-rental' ),
-			'not_found'          => __( 'No bookings found.', 'bike-rental' ),
-			'not_found_in_trash' => __( 'No bookings found in Trash.', 'bike-rental' ),
+			'menu_name'          => _x( 'Bookinger', 'Admin menu text', 'bike-rental' ),
+			'add_new'            => __( 'Legg til ny', 'bike-rental' ),
+			'add_new_item'       => __( 'Legg til ny booking', 'bike-rental' ),
+			'new_item'           => __( 'Ny booking', 'bike-rental' ),
+			'edit_item'          => __( 'Rediger booking', 'bike-rental' ),
+			'view_item'          => __( 'Vis booking', 'bike-rental' ),
+			'all_items'          => __( 'Alle bookinger', 'bike-rental' ),
+			'search_items'       => __( 'Søk i bookinger', 'bike-rental' ),
+			'not_found'          => __( 'Ingen bookinger funnet.', 'bike-rental' ),
+			'not_found_in_trash' => __( 'Ingen bookinger funnet i papirkurven.', 'bike-rental' ),
 		);
 
 		$args = array(
 			'labels'              => $labels,
-			'description'         => __( 'Rental bookings for bicycles.', 'bike-rental' ),
+			'description'         => __( 'Utleiebookinger for sykler.', 'bike-rental' ),
 			'public'              => false,
 			'publicly_queryable'  => false,
 			'show_ui'             => true,
@@ -165,15 +165,15 @@ class Post_Types {
 	 */
 	public function register_taxonomies() {
 		$labels = array(
-			'name'              => _x( 'Bike Types', 'taxonomy general name', 'bike-rental' ),
-			'singular_name'     => _x( 'Bike Type', 'taxonomy singular name', 'bike-rental' ),
-			'search_items'      => __( 'Search Bike Types', 'bike-rental' ),
-			'all_items'         => __( 'All Bike Types', 'bike-rental' ),
-			'edit_item'         => __( 'Edit Bike Type', 'bike-rental' ),
-			'update_item'       => __( 'Update Bike Type', 'bike-rental' ),
-			'add_new_item'      => __( 'Add New Bike Type', 'bike-rental' ),
-			'new_item_name'     => __( 'New Bike Type Name', 'bike-rental' ),
-			'menu_name'         => __( 'Bike Types', 'bike-rental' ),
+			'name'              => _x( 'Sykkeltyper', 'taxonomy general name', 'bike-rental' ),
+			'singular_name'     => _x( 'Sykkeltype', 'taxonomy singular name', 'bike-rental' ),
+			'search_items'      => __( 'Søk i sykkeltyper', 'bike-rental' ),
+			'all_items'         => __( 'Alle sykkeltyper', 'bike-rental' ),
+			'edit_item'         => __( 'Rediger sykkeltype', 'bike-rental' ),
+			'update_item'       => __( 'Oppdater sykkeltype', 'bike-rental' ),
+			'add_new_item'      => __( 'Legg til ny sykkeltype', 'bike-rental' ),
+			'new_item_name'     => __( 'Navn på ny sykkeltype', 'bike-rental' ),
+			'menu_name'         => __( 'Sykkeltyper', 'bike-rental' ),
 		);
 
 		register_taxonomy(

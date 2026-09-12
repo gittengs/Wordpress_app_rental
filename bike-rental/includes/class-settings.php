@@ -46,8 +46,8 @@ class Settings {
 	public function add_menu() {
 		add_submenu_page(
 			'edit.php?post_type=' . Post_Types::BIKE_CPT,
-			__( 'Bike Rental Settings', 'bike-rental' ),
-			__( 'Settings', 'bike-rental' ),
+			__( 'Innstillinger for sykkelutleie', 'bike-rental' ),
+			__( 'Innstillinger', 'bike-rental' ),
 			'manage_options',
 			self::PAGE_SLUG,
 			array( $this, 'render_page' )
@@ -99,16 +99,16 @@ class Settings {
 
 		add_settings_section(
 			'bike_rental_general',
-			__( 'General', 'bike-rental' ),
+			__( 'Generelt', 'bike-rental' ),
 			array( $this, 'render_section' ),
 			self::PAGE_SLUG
 		);
 
 		$fields = array(
-			'bike_rental_business_name'   => __( 'Business name', 'bike-rental' ),
-			'bike_rental_currency_symbol' => __( 'Currency symbol', 'bike-rental' ),
-			'bike_rental_booking_page'    => __( 'Booking page', 'bike-rental' ),
-			'bike_rental_terms_text'      => __( 'Rental terms', 'bike-rental' ),
+			'bike_rental_business_name'   => __( 'Bedriftsnavn', 'bike-rental' ),
+			'bike_rental_currency_symbol' => __( 'Valutasymbol', 'bike-rental' ),
+			'bike_rental_booking_page'    => __( 'Bookingside', 'bike-rental' ),
+			'bike_rental_terms_text'      => __( 'Utleievilkår', 'bike-rental' ),
 		);
 
 		foreach ( $fields as $key => $label ) {
@@ -132,7 +132,7 @@ class Settings {
 	 * @return void
 	 */
 	public function render_section() {
-		echo '<p>' . esc_html__( 'Configure how Bike Rental behaves on your site.', 'bike-rental' ) . '</p>';
+		echo '<p>' . esc_html__( 'Tilpass hvordan sykkelutleien oppfører seg på nettstedet ditt.', 'bike-rental' ) . '</p>';
 	}
 
 	/**
@@ -151,11 +151,11 @@ class Settings {
 					'name'              => $key,
 					'id'                => $key,
 					'selected'          => absint( $value ),
-					'show_option_none'  => __( '— Use current page —', 'bike-rental' ),
+					'show_option_none'  => __( '— Bruk gjeldende side —', 'bike-rental' ),
 					'option_none_value' => 0,
 				)
 			);
-			echo '<p class="description">' . esc_html__( 'The page that contains the [bike_booking_form] shortcode.', 'bike-rental' ) . '</p>';
+			echo '<p class="description">' . esc_html__( 'Siden som inneholder shortkoden [bike_booking_form].', 'bike-rental' ) . '</p>';
 			return;
 		}
 

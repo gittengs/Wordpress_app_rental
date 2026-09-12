@@ -4,7 +4,7 @@ Tags: rental, booking, bikes, bicycles, reservation
 Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 0.1.1
+Stable tag: 0.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,6 +44,10 @@ is planned for a future release.
 Yes. Overlapping requests for the same bike are automatically rejected.
 
 == Changelog ==
+
+= 0.1.2 =
+* Localized all user-facing strings to Norwegian Bokmål (front-end listing, booking form and notices, bike/booking statuses, validation messages, admin labels and settings).
+* Wired up `load_plugin_textdomain()` on `init` so translations from `/languages` are loaded.
 
 = 0.1.1 =
 * Re-skinned the front-end stylesheet to match the happybike.no design language (brand colors, pill-shaped CTAs, uppercase headings).

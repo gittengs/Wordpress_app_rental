@@ -70,9 +70,9 @@ class Bookings {
 	 */
 	public static function statuses() {
 		return array(
-			'pending'   => __( 'Pending', 'bike-rental' ),
-			'confirmed' => __( 'Confirmed', 'bike-rental' ),
-			'cancelled' => __( 'Cancelled', 'bike-rental' ),
+			'pending'   => __( 'Venter', 'bike-rental' ),
+			'confirmed' => __( 'Bekreftet', 'bike-rental' ),
+			'cancelled' => __( 'Avlyst', 'bike-rental' ),
 		);
 	}
 
@@ -275,22 +275,22 @@ class Bookings {
 
 		// Validate required data.
 		if ( ! $bike_id || Post_Types::BIKE_CPT !== get_post_type( $bike_id ) ) {
-			return new \WP_Error( 'invalid_bike', __( 'Please choose a valid bike.', 'bike-rental' ) );
+			return new \WP_Error( 'invalid_bike', __( 'Vennligst velg en gyldig sykkel.', 'bike-rental' ) );
 		}
 		if ( '' === $name ) {
-			return new \WP_Error( 'invalid_name', __( 'Please enter your name.', 'bike-rental' ) );
+			return new \WP_Error( 'invalid_name', __( 'Vennligst skriv inn navnet ditt.', 'bike-rental' ) );
 		}
 		if ( ! is_email( $email ) ) {
-			return new \WP_Error( 'invalid_email', __( 'Please enter a valid email address.', 'bike-rental' ) );
+			return new \WP_Error( 'invalid_email', __( 'Vennligst skriv inn en gyldig e-postadresse.', 'bike-rental' ) );
 		}
 		if ( ! $start || ! $end ) {
-			return new \WP_Error( 'invalid_dates', __( 'Please provide valid start and end dates.', 'bike-rental' ) );
+			return new \WP_Error( 'invalid_dates', __( 'Vennligst oppgi gyldig start- og sluttdato.', 'bike-rental' ) );
 		}
 		if ( $start > $end ) {
-			return new \WP_Error( 'invalid_range', __( 'The end date must be on or after the start date.', 'bike-rental' ) );
+			return new \WP_Error( 'invalid_range', __( 'Sluttdatoen må være lik eller senere enn startdatoen.', 'bike-rental' ) );
 		}
 		if ( ! $this->is_bike_available( $bike_id, $start, $end ) ) {
-			return new \WP_Error( 'unavailable', __( 'Sorry, this bike is not available for those dates.', 'bike-rental' ) );
+			return new \WP_Error( 'unavailable', __( 'Beklager, denne sykkelen er ikke tilgjengelig for disse datoene.', 'bike-rental' ) );
 		}
 
 		$booking_id = wp_insert_post(

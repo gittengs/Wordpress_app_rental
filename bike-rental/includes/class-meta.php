@@ -63,9 +63,9 @@ class Meta {
 	 */
 	public static function statuses() {
 		return array(
-			'available'   => __( 'Available', 'bike-rental' ),
-			'rented'      => __( 'Rented out', 'bike-rental' ),
-			'maintenance' => __( 'Maintenance', 'bike-rental' ),
+			'available'   => __( 'Tilgjengelig', 'bike-rental' ),
+			'rented'      => __( 'Utleid', 'bike-rental' ),
+			'maintenance' => __( 'Vedlikehold', 'bike-rental' ),
 		);
 	}
 
@@ -119,7 +119,7 @@ class Meta {
 	public function add_meta_box() {
 		add_meta_box(
 			'bike_rental_details',
-			__( 'Bike Details', 'bike-rental' ),
+			__( 'Sykkeldetaljer', 'bike-rental' ),
 			array( $this, 'render_meta_box' ),
 			Post_Types::BIKE_CPT,
 			'normal',
@@ -146,27 +146,27 @@ class Meta {
 		<table class="form-table" role="presentation">
 			<tr>
 				<th scope="row">
-					<label for="bike_rental_code"><?php esc_html_e( 'Fleet Code', 'bike-rental' ); ?></label>
+					<label for="bike_rental_code"><?php esc_html_e( 'Flåtekode', 'bike-rental' ); ?></label>
 				</th>
 				<td>
 					<input type="text" id="bike_rental_code" name="bike_rental_code"
 						value="<?php echo esc_attr( $code ); ?>" class="regular-text" />
-					<p class="description"><?php esc_html_e( 'A unique internal identifier for this bike.', 'bike-rental' ); ?></p>
+					<p class="description"><?php esc_html_e( 'En unik intern identifikator for denne sykkelen.', 'bike-rental' ); ?></p>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="bike_rental_size"><?php esc_html_e( 'Frame Size', 'bike-rental' ); ?></label>
+					<label for="bike_rental_size"><?php esc_html_e( 'Rammestørrelse', 'bike-rental' ); ?></label>
 				</th>
 				<td>
 					<input type="text" id="bike_rental_size" name="bike_rental_size"
 						value="<?php echo esc_attr( $size ); ?>" class="regular-text" />
-					<p class="description"><?php esc_html_e( 'e.g. S, M, L or 52cm.', 'bike-rental' ); ?></p>
+					<p class="description"><?php esc_html_e( 'f.eks. S, M, L eller 52 cm.', 'bike-rental' ); ?></p>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="bike_rental_hourly_rate"><?php esc_html_e( 'Hourly Rate', 'bike-rental' ); ?></label>
+					<label for="bike_rental_hourly_rate"><?php esc_html_e( 'Timepris', 'bike-rental' ); ?></label>
 				</th>
 				<td>
 					<input type="number" step="0.01" min="0" id="bike_rental_hourly_rate"
@@ -176,7 +176,7 @@ class Meta {
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="bike_rental_daily_rate"><?php esc_html_e( 'Daily Rate', 'bike-rental' ); ?></label>
+					<label for="bike_rental_daily_rate"><?php esc_html_e( 'Dagpris', 'bike-rental' ); ?></label>
 				</th>
 				<td>
 					<input type="number" step="0.01" min="0" id="bike_rental_daily_rate"

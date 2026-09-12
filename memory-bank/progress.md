@@ -20,6 +20,9 @@ place. Feature logic is stubbed out and ready to be built upon.
 - [x] Front-end stylesheet re-skinned to the happybike.no design language
       (brand tokens, pill CTAs, uppercase headings); CSS parsed cleanly with the
       Node `css` package (`32 rules, 115 declarations`, no structural problems).
+- [x] All user-facing strings localized to **Norwegian Bokmål** (front end +
+      admin); `Plugin::load_textdomain()` wired on `init`. Files verified as
+      valid UTF-8 with balanced braces/parens.
 
 ## What's left to build
 
@@ -29,7 +32,9 @@ place. Feature logic is stubbed out and ready to be built upon.
 - [ ] Admin booking management (approve/reject, status transitions).
 - [ ] Availability calendar / date picker on the front end.
 - [ ] Settings page fields (currency, business name, terms text) wired up.
-- [ ] Internationalization: generate `.pot` file in `/languages`.
+- [ ] Internationalization: `languages/` dir + `load_plugin_textdomain()` are
+      wired; source language is Norwegian. A `.pot` is only needed if English (or
+      another language) translations are wanted later.
 - [ ] Optional: WooCommerce payments integration.
 - [ ] Optional: Gutenberg blocks for listing/booking.
 
@@ -49,3 +54,7 @@ place. Feature logic is stubbed out and ready to be built upon.
 
 - **2026-09-12** — Project started. Chose shortcodes over blocks for v1; chose CPTs
   over custom tables for bikes/bookings; deferred payments and Composer tooling.
+- **2026-09-12** — Chose **Norwegian Bokmål as the source language** (rather than
+  shipping an `nb_NO` translation on top of English source). Rationale: guarantees
+  a Norwegian UI on any site locale and fits the Norwegian market; all strings
+  stay wrapped so other locales can still be added via `.po`/`.mo` later.

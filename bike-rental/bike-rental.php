@@ -3,7 +3,7 @@
  * Plugin Name:       Bike Rental
  * Plugin URI:        https://example.com/bike-rental
  * Description:       Add a complete bicycle rental system to WordPress: manage your fleet, track availability, and take bookings.
- * Version:           0.1.1
+ * Version:           0.1.2
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Bike Rental Team
@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
  * Plugin constants.
  * ---------------------------------------------------------------------- */
 
-define( 'BIKE_RENTAL_VERSION', '0.1.1' );
+define( 'BIKE_RENTAL_VERSION', '0.1.2' );
 define( 'BIKE_RENTAL_FILE', __FILE__ );
 define( 'BIKE_RENTAL_DIR', plugin_dir_path( __FILE__ ) );
 define( 'BIKE_RENTAL_URL', plugin_dir_url( __FILE__ ) );

@@ -23,5 +23,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   warm peach/cream neutrals, uppercase tight-tracked headings and pill-shaped
   CTAs. Brand values are exposed as `--bike-rental-*` CSS custom properties on
   `:root`.
+- Localized every user-facing string to **Norwegian Bokmål** to match the
+  Norwegian (happybike.no) market: front-end listing/empty state, booking form
+  labels and button, success/error notices, bike + booking status labels,
+  availability validation messages, and the admin meta box / post-type /
+  settings labels. Strings remain wrapped in `__()` / `_x()` with the
+  `bike-rental` text domain. Added `Plugin::load_textdomain()` (hooked on `init`)
+  so `/languages` translation files are loaded.
 
 [Unreleased]: https://example.com/bike-rental

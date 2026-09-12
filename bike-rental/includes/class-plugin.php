@@ -45,6 +45,8 @@ final class Plugin {
 	 * @return void
 	 */
 	public function init() {
+		add_action( 'init', array( $this, 'load_textdomain' ) );
+
 		( new Post_Types() )->register_hooks();
 		( new Meta() )->register_hooks();
 		( new Bookings() )->register_hooks();
@@ -61,6 +63,22 @@ final class Plugin {
 		 * @param Plugin $plugin The plugin instance.
 		 */
 		do_action( 'bike_rental_init', $this );
+	}
+
+	/**
+	 * Load the plugin text domain.
+	 *
+	 * Hooked on `init` so translations are loaded at the correct time
+	 * (loading them earlier triggers a `_doing_it_wrong()` notice on WP 6.7+).
+	 *
+	 * @return void
+	 */
+	public function load_textdomain() {
+		load_plugin_textdomain(
+			'bike-rental',
+			false,
+			dirname( BIKE_RENTAL_BASENAME ) . '/languages'
+		);
 	}
 
 	/**

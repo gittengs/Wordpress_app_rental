@@ -62,7 +62,7 @@ class Shortcodes {
 		$bikes = new \WP_Query( $query_args );
 
 		if ( ! $bikes->have_posts() ) {
-			return '<p class="bike-rental-empty">' . esc_html__( 'No bikes are available right now.', 'bike-rental' ) . '</p>';
+			return '<p class="bike-rental-empty">' . esc_html__( 'Ingen sykler er tilgjengelige akkurat nå.', 'bike-rental' ) . '</p>';
 		}
 
 		$columns = max( 1, min( 4, absint( $atts['columns'] ) ) );
@@ -91,7 +91,7 @@ class Shortcodes {
 						<span class="bike-rental-card__price">
 							<?php
 							/* translators: %s: formatted daily rate. */
-							printf( esc_html__( '%s / day', 'bike-rental' ), esc_html( $this->format_price( $daily_rate ) ) );
+							printf( esc_html__( '%s / dag', 'bike-rental' ), esc_html( $this->format_price( $daily_rate ) ) );
 							?>
 						</span>
 					<?php endif; ?>
@@ -101,7 +101,7 @@ class Shortcodes {
 				</p>
 				<p class="bike-rental-card__actions">
 					<a class="bike-rental-button" href="<?php echo esc_url( $this->booking_page_url( $bike_id ) ); ?>">
-						<?php esc_html_e( 'Book this bike', 'bike-rental' ); ?>
+						<?php esc_html_e( 'Book denne sykkelen', 'bike-rental' ); ?>
 					</a>
 				</p>
 			</article>
@@ -179,7 +179,7 @@ class Shortcodes {
 		}
 
 		if ( ! $bike_id || Post_Types::BIKE_CPT !== get_post_type( $bike_id ) ) {
-			return '<p class="bike-rental-error">' . esc_html__( 'No bike was selected.', 'bike-rental' ) . '</p>';
+			return '<p class="bike-rental-error">' . esc_html__( 'Ingen sykkel er valgt.', 'bike-rental' ) . '</p>';
 		}
 
 		$message = '';
@@ -193,7 +193,7 @@ class Shortcodes {
 				);
 
 			if ( ! $nonce_ok ) {
-				$message = $this->notice( 'error', __( 'Security check failed. Please try again.', 'bike-rental' ) );
+				$message = $this->notice( 'error', __( 'Sikkerhetskontrollen feilet. Prøv igjen.', 'bike-rental' ) );
 			} else {
 				$bookings = new Bookings();
 				$result   = $bookings->create_booking(
@@ -210,7 +210,7 @@ class Shortcodes {
 				if ( is_wp_error( $result ) ) {
 					$message = $this->notice( 'error', $result->get_error_message() );
 				} else {
-					$message = $this->notice( 'success', __( 'Thank you! Your booking request has been received.', 'bike-rental' ) );
+					$message = $this->notice( 'success', __( 'Takk! Vi har mottatt forespørselen din.', 'bike-rental' ) );
 				}
 			}
 		}
@@ -261,39 +261,39 @@ class Shortcodes {
 			<?php wp_nonce_field( 'bike_rental_submit_booking', 'bike_rental_booking_nonce' ); ?>
 
 			<p class="bike-rental-field">
-				<label for="bike_rental_name"><?php esc_html_e( 'Your name', 'bike-rental' ); ?> <span aria-hidden="true">*</span></label>
+				<label for="bike_rental_name"><?php esc_html_e( 'Navnet ditt', 'bike-rental' ); ?> <span aria-hidden="true">*</span></label>
 				<input type="text" id="bike_rental_name" name="bike_rental_name"
 					value="<?php echo esc_attr( $prefill_name ); ?>" required />
 			</p>
 
 			<p class="bike-rental-field">
-				<label for="bike_rental_email"><?php esc_html_e( 'Email address', 'bike-rental' ); ?> <span aria-hidden="true">*</span></label>
+				<label for="bike_rental_email"><?php esc_html_e( 'E-postadresse', 'bike-rental' ); ?> <span aria-hidden="true">*</span></label>
 				<input type="email" id="bike_rental_email" name="bike_rental_email"
 					value="<?php echo esc_attr( $prefill_email ); ?>" required />
 			</p>
 
 			<p class="bike-rental-field">
-				<label for="bike_rental_start"><?php esc_html_e( 'Start date', 'bike-rental' ); ?> <span aria-hidden="true">*</span></label>
+				<label for="bike_rental_start"><?php esc_html_e( 'Startdato', 'bike-rental' ); ?> <span aria-hidden="true">*</span></label>
 				<input type="date" id="bike_rental_start" name="bike_rental_start"
 					min="<?php echo esc_attr( $today ); ?>"
 					value="<?php echo esc_attr( $prefill_start ); ?>" required />
 			</p>
 
 			<p class="bike-rental-field">
-				<label for="bike_rental_end"><?php esc_html_e( 'End date', 'bike-rental' ); ?> <span aria-hidden="true">*</span></label>
+				<label for="bike_rental_end"><?php esc_html_e( 'Sluttdato', 'bike-rental' ); ?> <span aria-hidden="true">*</span></label>
 				<input type="date" id="bike_rental_end" name="bike_rental_end"
 					min="<?php echo esc_attr( $today ); ?>"
 					value="<?php echo esc_attr( $prefill_end ); ?>" required />
 			</p>
 
 			<p class="bike-rental-field">
-				<label for="bike_rental_notes"><?php esc_html_e( 'Notes (optional)', 'bike-rental' ); ?></label>
+				<label for="bike_rental_notes"><?php esc_html_e( 'Notater (valgfritt)', 'bike-rental' ); ?></label>
 				<textarea id="bike_rental_notes" name="bike_rental_notes" rows="3"><?php echo esc_textarea( $prefill_notes ); ?></textarea>
 			</p>
 
 			<p class="bike-rental-field">
 				<button type="submit" name="bike_rental_booking_submit" value="1" class="bike-rental-button">
-					<?php esc_html_e( 'Request booking', 'bike-rental' ); ?>
+					<?php esc_html_e( 'Send forespørsel', 'bike-rental' ); ?>
 				</button>
 			</p>
 		</form>
